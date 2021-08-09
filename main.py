@@ -3,17 +3,32 @@ making a program
 that prints all prime numbers
 between start and end range
 '''
+def next_prime(start, end):
 
-start = int(input('enter the first number: '))
-end = int(input('enter the end number: '))
+    isStart = input('do you wanna start the game? (y/n): ')
+    start_boolean = False
 
-print('we are going to find the prime numbers between ', start, ' and ', end)
+    if isStart == 'y':
+            start_boolean = True
+            while start_boolean:
+                response = input('do you wanna print the prime numbers? (y/n): ')
+                for num in range(start, end + 1):
+                    if num > 1:
+                        for i in range(2, num):
+                            if num % i == 0:
+                                break
+                        else:
+                            if response == 'y':
+                                print(num)
+                                break
+                            elif response == 'n':
+                                start_boolean = False
+                            else:
+                                print('please enter y or n')
 
-for num in range(start, end + 1):
-    # prime numbers that are greater than 1
-    if num > 1:
-        for i in range(2, num):
-            if (num % i) == 0:
-                break
-            else:
-                print(num)
+
+
+start_v = int(input('start value of range: '))
+end_v = int(input('end value of range: '))
+
+next_prime(start_v, end_v)
